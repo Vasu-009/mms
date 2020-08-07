@@ -3,14 +3,7 @@ package com.capg.mms.booking.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-//@Entity
-//@Table(name="customer")
 public class Customer {
-
 private String customerId;
 private String customerName;
 private String customerPassword;
@@ -73,7 +66,4 @@ public String toString() {
 			+ customerPassword + ", dateOfBirth=" + dateOfBirth + ", myTickets=" + myTickets + ", customerContact="
 			+ customerContact + "]";
 }
-
-
-	
 }

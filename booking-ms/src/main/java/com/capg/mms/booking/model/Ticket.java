@@ -1,53 +1,35 @@
  package com.capg.mms.booking.model;
 
-import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
-@Table(name="ticket_movie")
+@Table(name="movieticket_booking")
 public class Ticket {
-//@Id
-//private int ticketId;
-////@OneToMany
-////@Column
-//private int noOfSeats;
-//
-//@ElementCollection
-//private List<String> seatName;
-//@OneToOne
-//private Booking bookingRef;
-//private boolean ticketStatus;
-//private String screenName;
-	//private static final long serialVersionUID = 1L;
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
-	public int ticketId;
-    public int noOfSeats;
-    public String movieName;
-    public String theatreName;
-    public String customerName;
-    public String emailId;
-    public int phno;
-    public String paymentMethod;
+	private int ticketId;
+	private int noOfSeats;
+    private String movieName;
+    private String theatreName;
+    private String customerName;
+    private String emailId;
+    private long phno;
+    private String paymentMethod;
+    @DateTimeFormat(pattern = "yyyy/MM/ddThh:mm")
+    private LocalDateTime dateTime;
 public Ticket() {
 	super();
 }
-public Ticket(int ticketId, int noOfSeats, String movieName, String theatreName, String customerName, String emailId,
-		int phno, String paymentMethod) {
+public Ticket(int ticketId, int noOfSeats,String movieName, String theatreName, String customerName, String emailId,
+		int phno, String paymentMethod,LocalDateTime dateTime) {
 	super();
 	this.ticketId = ticketId;
 	this.noOfSeats = noOfSeats;
+	this.dateTime = dateTime;
 	this.movieName = movieName;
 	this.theatreName = theatreName;
 	this.customerName = customerName;
@@ -55,6 +37,7 @@ public Ticket(int ticketId, int noOfSeats, String movieName, String theatreName,
 	this.phno = phno;
 	this.paymentMethod = paymentMethod;
 }
+
 public int getTicketId() {
 	return ticketId;
 }
@@ -91,10 +74,10 @@ public String getEmailId() {
 public void setEmailId(String emailId) {
 	this.emailId = emailId;
 }
-public int getPhno() {
+public long getPhno() {
 	return phno;
 }
-public void setPhno(int phno) {
+public void setPhno(long phno) {
 	this.phno = phno;
 }
 public String getPaymentMethod() {
@@ -103,64 +86,17 @@ public String getPaymentMethod() {
 public void setPaymentMethod(String paymentMethod) {
 	this.paymentMethod = paymentMethod;
 }
+public LocalDateTime getDateTime() {
+	return dateTime;
+}
+public void setDateTime(LocalDateTime dateTime) {
+	this.dateTime = dateTime;
+}
 @Override
 public String toString() {
 	return "Ticket [ticketId=" + ticketId + ", noOfSeats=" + noOfSeats + ", movieName=" + movieName + ", theatreName="
 			+ theatreName + ", customerName=" + customerName + ", emailId=" + emailId + ", phno=" + phno
-			+ ", paymentMethod=" + paymentMethod + "]";
+			+ ", paymentMethod=" + paymentMethod + ", dateTime=" + dateTime + "]";
 }
-
-
-//public Ticket(int ticketId, int noOfSeats, List<String> seatName, Booking bookingRef, boolean ticketStatus,
-//		String screenName) {
-//	super();
-//	this.ticketId = ticketId;
-//	this.noOfSeats = noOfSeats;
-//	this.seatName = seatName;
-//	this.bookingRef = bookingRef;
-//	this.ticketStatus = ticketStatus;
-//	this.screenName = screenName;
-//}
-//public int getTicketId() {
-//	return ticketId;
-//}
-//public void setTicketId(int ticketId) {
-//	this.ticketId = ticketId;
-//}
-//public int getNoOfSeats() {
-//	return noOfSeats;
-//}
-//public void setNoOfSeats(int noOfSeats) {
-//	this.noOfSeats = noOfSeats;
-//}
-//public List<String> getSeatName() {
-//	return seatName;
-//}
-//public void setSeatName(List<String> seatName) {
-//	this.seatName = seatName;
-//}
-//public Booking getBookingRef() {
-//	return bookingRef;
-//}
-//public void setBookingRef(Booking bookingRef) {
-//	this.bookingRef = bookingRef;
-//}
-//public boolean isTicketStatus() {
-//	return ticketStatus;
-//}
-//public void setTicketStatus(boolean ticketStatus) {
-//	this.ticketStatus = ticketStatus;
-//}
-//public String getScreenName() {
-//	return screenName;
-//}
-//public void setScreenName(String screenName) {
-//	this.screenName = screenName;
-//}
-//@Override
-//public String toString() {
-//	return "Ticket [ticketId=" + ticketId + ", noOfSeats=" + noOfSeats + ", seatName=" + seatName + ", bookingRef="
-//			+ bookingRef + ", ticketStatus=" + ticketStatus + ", screenName=" + screenName + "]";
-//}
 
 }

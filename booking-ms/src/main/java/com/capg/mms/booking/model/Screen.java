@@ -2,27 +2,13 @@ package com.capg.mms.booking.model;
 
 import java.time.LocalDate;
 import java.util.List;
-
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
-//@Entity
-//@Table(name="screen")
 public class Screen {
-//@Id
 private int screenId;
 private int theatreId;
 private String screenName;
-//@OneToMany
 private List<Show> showList;
-//@DateTimeFormat(pattern = "yyyy/MM/dd")
 private LocalDate movieEndDate;
 public Screen() {
 	super();
@@ -89,6 +75,5 @@ public String toString() {
 	return "Screen [screenId=" + screenId + ", theatreId=" + theatreId + ", screenName=" + screenName + ", showList="
 			+ showList + ", movieEndDate=" + movieEndDate + ", rows=" + rows + ", columns=" + columns + "]";
 }
-
 
 }

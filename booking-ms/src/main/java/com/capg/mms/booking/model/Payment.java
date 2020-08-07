@@ -1,48 +1,39 @@
 package com.capg.mms.booking.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-//@Entity
-//@Table
 public class Payment {
-	//@Column
-	private String paymentmethod;
-//	private String googlepay;
-	private long phonenumber;
+	
+	private String paymentMethod;
+	private long phno;
 
 	public Payment() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
-	public Payment(String paymentmethod, long phonenumber) {
+	public Payment(String paymentMethod, long phno) {
 		super();
-		this.paymentmethod = paymentmethod;
-		this.phonenumber = phonenumber;
+		this.paymentMethod = paymentMethod;
+		this.phno = phno;
 	}
-
 
 	public String getPaymentMethod() {
-		return paymentmethod;
+		return paymentMethod;
 	}
 
-	public void setPaymentMethod(String PaymentMethod) {
-		this.paymentmethod = PaymentMethod;
+	public void setPaymentMethod(String paymentMethod) {
+		this.paymentMethod = paymentMethod;
 	}
 
-	public long getPhonenumber() {
-		return phonenumber;
+	public long getPhno() {
+		return phno;
 	}
 
-	public void setPhonenumber(long phonenumber) {
-		this.phonenumber = phonenumber;
+	public void setPhno(long phno) {
+		this.phno = phno;
 	}
 
 	@Override
 	public String toString() {
-		return "Payment [paymentmethod=" + paymentmethod + ", phonenumber=" + phonenumber + "]";
+		return "Payment [paymentMethod=" + paymentMethod + ", phno=" + phno + "]";
 	}
 	
 }

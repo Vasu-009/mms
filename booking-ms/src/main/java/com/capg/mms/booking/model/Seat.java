@@ -1,10 +1,7 @@
 package com.capg.mms.booking.model;
 
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,7 +31,7 @@ public class Seat {
 		this.seatId = seatId;
 	}
 
-	public Enum getSeatStatus() {
+	public SeatStatus getSeatStatus() {
 		return seatStatus;
 	}
 

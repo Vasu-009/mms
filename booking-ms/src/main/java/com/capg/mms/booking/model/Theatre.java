@@ -2,25 +2,11 @@ package com.capg.mms.booking.model;
 
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-//@Entity
-//@Table(name="theater")
 public class Theatre {
-//@Id
 private int theatreId;
 private String theatreName;
 private String theatreCity;
-//@ElementCollection
 private List<Integer> movies;
-
-//@OneToMany
 private List<Screen> listOfScreens;
 private String managerName;
 private String managerContact;
@@ -38,7 +24,7 @@ public Theatre(int theatreId, String theatreName, String theatreCity, List<Integ
 }
 
 public Theatre() {
-	// TODO Auto-generated constructor stub
+	
 }
 
 public int getTheatreId() {
@@ -103,8 +89,5 @@ public String toString() {
 			+ ", movies=" + movies + ", listOfScreens=" + listOfScreens + ", managerName=" + managerName
 			+ ", managerContact=" + managerContact + "]";
 }
-
-
-
 
 }

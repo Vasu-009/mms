@@ -3,11 +3,7 @@ package com.capg.mms.booking.model;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.ElementCollection;
-import javax.persistence.Id;
-
 public class Movie {
-
 private int movieId;
 private String movieName;
 private List<Integer> movieGenre;
@@ -77,6 +73,5 @@ public String toString() {
 			+ movieDirector + ", movieLength=" + movieLength + ", languages=" + languages + ", movieReleaseDate="
 			+ movieReleaseDate + "]";
 }
-
 
 }

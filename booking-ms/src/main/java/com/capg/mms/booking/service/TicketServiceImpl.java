@@ -1,14 +1,11 @@
 package com.capg.mms.booking.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
-import com.capg.mms.booking.Exception.TicketCancellationException;
-import com.capg.mms.booking.Exception.TicketNotFoundException;
-import com.capg.mms.booking.model.Booking;
-import com.capg.mms.booking.model.Seat;
+
+import com.capg.mms.booking.exception.SlotNotAvailableException;
+import com.capg.mms.booking.exception.TicketCancellationException;
 import com.capg.mms.booking.model.Ticket;
 import com.capg.mms.booking.repository.TicketRepo;
 
@@ -17,30 +14,21 @@ public class TicketServiceImpl implements ITicketService {
 	@Autowired
     TicketRepo ticketRepo;
 	
-//	Lst<Seat> seats;
-
 	@Override
-	public Ticket showTicketById(int ticketId) {
-		// TODO Auto-generated method stub
+	public Ticket showTicket(int ticketId)  {
+		
 		return ticketRepo.getOne(ticketId);
-	}
+     }
 	
 	@Override
-	public Ticket addTicketById(Ticket ticket) {
-		// TODO Auto-generated method stub
-		return ticketRepo.save(ticket);
-	}
-	
-//	@Override
-//	public Seat addBookingById(int seatId) {
-//		return ticketRepo.save(seatId);
-//		
-//	}
+	public Ticket addTicket(Ticket ticket) throws SlotNotAvailableException {
+		
+          return ticketRepo.save(ticket);
+        }
 
 	@Override
-	public boolean cancelBookingById(int ticketId) throws TicketCancellationException {
+	public boolean cancelBooking(int ticketId) throws TicketCancellationException {
 
-		//boolean flag = false;
 		if (ticketRepo.existsById(ticketId)) 
 		{
 			ticketRepo.deleteById(ticketId);
@@ -49,7 +37,12 @@ public class TicketServiceImpl implements ITicketService {
 			throw new TicketCancellationException("Cancellation Failed : Id not found");
 		}
 		return true;
-
 	}
+
+    @Override
+     public List<Ticket> getAllBookings(Ticket ticket) {
+	
+	    return ticketRepo.findAll();
+     }
 
 }
